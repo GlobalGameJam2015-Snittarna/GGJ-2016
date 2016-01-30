@@ -17,6 +17,13 @@ public abstract class Scene {
 	private boolean depthChanged;
 	
 	private ArrayList<GameObject> objects, toAdd, toRemove;
+	public ArrayList<GameObject> getToAdd() {
+		return toAdd;
+	}
+	public ArrayList<GameObject> getToRemove() {
+		return toRemove;
+	}
+
 	private OrthographicCamera camera, uiCamera;
 	
 	public OrthographicCamera getCamera() { return camera; }
@@ -26,7 +33,7 @@ public abstract class Scene {
 
 	public Vector3 cameraPosition;
 
-	public ArrayList<GameObject> getObjects() { return objects; }
+	public ArrayList<GameObject> getObjects() { System.out.println(objects == null); return objects; }
 	
 	public Scene() {
 		objects = new ArrayList<GameObject>();

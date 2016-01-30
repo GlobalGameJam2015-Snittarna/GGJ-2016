@@ -12,6 +12,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.snittarna.framework.GameObject;
 import com.snittarna.framework.Point;
 import com.snittarna.framework.ResourceReader;
+import com.snittarna.gameScence.Player;
 import com.snittarna.pizza.AssetManager;
 
 public class Map {
@@ -45,7 +46,19 @@ public class Map {
 				}
 			}
 		}
-		return new Level(ret);
+		return new Level(ret, data);
+	}
+	
+	
+
+	public static void nextLevel() {
+		setLevel(currentLevel + 1);
+	}
+	
+	public static void setLevel(int level) {
+		if (level >= 0 && level <levels.length) {
+			currentLevel = level;
+		}
 	}
 
 	private static TileType getType(int pixel) {
@@ -67,5 +80,9 @@ public class Map {
 	
 	public static ArrayList<Tile> getTiles() {
 		return levels[currentLevel].getTiles();
+	}
+
+	public static Level getCurrentLevel() {
+		return levels[currentLevel];
 	}
 }
