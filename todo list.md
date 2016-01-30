@@ -2,15 +2,15 @@
 
 Task | Staus | Person
 -----|-------|-------
-Tile-system | not done | Johannes
+Tile-system | done | Johannes
 Player | not done | Tom
 Enemies | not done | Johannes & Tom
 Power-up system | not done | Tom
-Projectiles | not done | Tom
-Level system | not done | Johannes
+Projectiles | done | Tom
+Level system | almost done | Johannes
 Visual effects | not done | Tom & Johannes
 Ui-nisse | not done | Johannes
-Physichs | not done | Johannes
+Physichs | done | Johannes
 
 #### Power ups
 
