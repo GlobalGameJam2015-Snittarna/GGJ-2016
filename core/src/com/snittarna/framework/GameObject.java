@@ -25,7 +25,7 @@ public abstract class GameObject {
 	private float depth;
 	protected boolean gravitates;
 	
-	final static float G = -.01f;
+	final static float G = -1f;
 
 	public void setPosition(Vector2 p) { 
 		position = p;
@@ -138,36 +138,36 @@ public abstract class GameObject {
 	protected boolean colX, colY;
 	
 	public void update(float deltaTime) { 
+
+		System.out.println(velocity);
 		colX = false;
 		colY = false;
 		
-		float step = 0.01f;
-		
 		if (gravitates) velocity.y += G;
-
-        ArrayList<Tile> tiles = getCloseTiles(Map.getTiles());
-
-        move(0, velocity.y);
-        float y = (velocity.y > 0 ? 1 : (velocity.y < 0 ? -1 : 0));
-        y  *= step;
-        //if (y == 0) y = 1 * step;
-        while (isCollidingWithAny(tiles) && y != 0)
-        {
-            move(0, -y);
-            velocity = new Vector2(velocity.x, 0);
-            colY = true;
-        }
-
-        move(velocity.x, 0);
-        float x = (velocity.x > 0 ? 1 : (velocity.x < 0 ? -1 : 0));
-        //if (x == 0) x = 1;
-        x *= step;
-        while (isCollidingWithAny(tiles) && x != 0)
-        {
-            move(-x, 0);
-            velocity = new Vector2(0, velocity.y);
-            colX = true;
-        }
+		
+		int steps = 100;
+		
+		ArrayList<Tile> tiles = getCloseTiles(Map.getTiles());
+		
+		for (int i = 0; i < steps; i++) {
+			if (!colX) {
+				move(velocity.x / steps * deltaTime, 0);
+				if (isCollidingWithAny(tiles)) {
+					colX = true;
+					move(-velocity.x / steps * deltaTime, 0);
+					velocity.x = 0;
+				}
+			}
+			
+			if (!colY) {
+				move(0, velocity.y / steps * deltaTime);
+				if (isCollidingWithAny(tiles)) {
+					colY = true;
+					move(0, -velocity.y / steps * deltaTime);
+					velocity.y = 0;
+				}
+			}
+		}
         
         System.out.println("x: " + colX + ", y: " + colY);	
 	}
@@ -175,7 +175,7 @@ public abstract class GameObject {
 	private boolean isCollidingWithAny(ArrayList<Tile> tiles) {
 		for (Tile t : tiles) {
 			if (getHitbox().collision(t.getHitBox())) {
-				System.out.println("collision " + getHitbox().toString() + ", " + t.getHitBox().toString());
+				//System.out.println("collision " + getHitbox().toString() + ", " + t.getHitBox().toString());
 				return true;
 			}
 		}

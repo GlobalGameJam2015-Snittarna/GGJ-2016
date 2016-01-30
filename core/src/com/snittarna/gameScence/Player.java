@@ -2,6 +2,7 @@ package com.snittarna.gameScence;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.snittarna.framework.Animation;
 import com.snittarna.framework.Killable;
@@ -41,7 +42,7 @@ public class Player extends Killable {
 		
 		setHealth(3);  
 		
-		this.speed = 5f;
+		this.speed = 50f;
 		
 		this.setType(Type.PLAYER);
 		
@@ -68,7 +69,6 @@ public class Player extends Killable {
 		
 		velocity.set(new Vector2(velocity.x*FRICTION, velocity.y));
 		
-		System.out.println(velocity);
 		
 		//this.setPosition(this.getPosition().cpy().add(new Vector2(velocity.x*deltaTime, velocity.y*deltaTime)));
 	}
@@ -100,5 +100,9 @@ public class Player extends Killable {
 		this.currentShootPattern = p.getPattern();
 		this.maxFireDelay = p.getMaxFireDelay();
 		this.projectilePrototype = new Projectile(new Vector2(0, 0), 0, p.getSpeed(), p.getDamage(), Killable.Type.PLAYER, new Animation(AssetManager.getTexture("projectile")));
+	}
+	
+	public void drawUi(SpriteBatch batch) {
+		AssetManager.font.draw(batch, colX + ", " + colY, 0, 0);
 	}
 }
