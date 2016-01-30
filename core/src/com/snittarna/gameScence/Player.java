@@ -68,8 +68,7 @@ public class Player extends Killable {
 		}
 		
 		velocity.set(new Vector2(velocity.x*FRICTION, velocity.y));
-		
-		
+
 		//this.setPosition(this.getPosition().cpy().add(new Vector2(velocity.x*deltaTime, velocity.y*deltaTime)));
 	}
 	
