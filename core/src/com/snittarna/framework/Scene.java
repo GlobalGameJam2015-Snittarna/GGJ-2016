@@ -24,6 +24,8 @@ public abstract class Scene {
 	
 	private float screenShake; // for both duration and intensity
 
+	public Vector3 cameraPosition;
+
 	public ArrayList<GameObject> getObjects() { return objects; }
 	
 	public Scene() {
@@ -32,6 +34,7 @@ public abstract class Scene {
 		toRemove = new ArrayList<GameObject>();
 		uiCamera = new OrthographicCamera(UI_W, UI_H);
 		camera = new OrthographicCamera(G_W, G_H);
+		cameraPosition = new Vector3();
 	}
 	
 	public void update(float deltaTime) {
@@ -46,6 +49,7 @@ public abstract class Scene {
 			depthChanged = false;
 		}
 		
+		camera.translate(cameraPosition);
 		camera.update();
 		
 		for (GameObject g : objects) g.update(deltaTime);

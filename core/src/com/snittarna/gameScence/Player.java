@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.math.Vector3;
 import com.snittarna.framework.Animation;
 import com.snittarna.framework.Killable;
 import com.snittarna.pizza.AssetManager;
@@ -53,6 +54,9 @@ public class Player extends Killable {
 	
 	public void update(float deltaTime) {
 		super.update(deltaTime);
+		getScene().cameraPosition.sub(getScene().cameraPosition.cpy().sub(new Vector3(getPosition(), 0)).scl(.1f));
+		
+		getScene().getCamera().update();
 		
 		updateInput(deltaTime);
 		
@@ -100,9 +104,5 @@ public class Player extends Killable {
 		this.currentShootPattern = p.getPattern();
 		this.maxFireDelay = p.getMaxFireDelay();
 		this.projectilePrototype = new Projectile(new Vector2(0, 0), 0, p.getSpeed(), p.getDamage(), Killable.Type.PLAYER, new Animation(AssetManager.getTexture("projectile")));
-	}
-	
-	public void drawUi(SpriteBatch batch) {
-		AssetManager.font.draw(batch, colX + ", " + colY, 0, 0);
 	}
 }
