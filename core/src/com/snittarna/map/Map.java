@@ -32,12 +32,12 @@ public class Map {
 	}
 	
 	private static Level loadMap(ResourceReader r) {
-		System.out.println(r.getString("data"));
+		//System.out.println(r.getString("data"));
 		TextureData d = new Texture("maps/" + r.getString("data")).getTextureData();
 		d.prepare();
 		Pixmap data = d.consumePixmap();
 		ArrayList<Tile> ret = new ArrayList<Tile>();
-		System.out.println(data.getWidth() + ", " + data.getHeight());
+		//System.out.println(data.getWidth() + ", " + data.getHeight());
 		for (int x = 0; x < data.getWidth(); x++) {
 			for (int y = 0; y < data.getHeight(); y++) {
 				TileType t = getType(data.getPixel(x, y));
@@ -63,12 +63,13 @@ public class Map {
 		Color c = new Color(pixel);
 		TileType[] types = TileType.getAll();
 		for (TileType t : types) {
-			System.out.println(c + ", " + t.getDataColor());
-			if (t.getDataColor().r == c.r && t.getDataColor().g == c.g && t.getDataColor().b == c.b && c.a != 0) {
+			//System.out.println(c + ", " + t.getDataColor());
+			if (t.getDataColor().r == c.r && t.getDataColor().g == c.g && t.getDataColor().b == c.b && c.a > .5f) {
+				System.out.println(c.a);
 				return t;
 			}
 		}
-		System.out.println("wrong color " + c);
+		//System.out.println("wrong color " + c);
 		return null;
 	}
 	

@@ -3,7 +3,6 @@
  */
 package com.snittarna.framework;
 
-import java.beans.VetoableChangeListenerProxy;
 import java.util.ArrayList;
 
 import com.badlogic.gdx.graphics.Color;
@@ -46,7 +45,7 @@ public abstract class GameObject {
 	
 	public void setSize(Vector2 s) { 
 		size = s;
-		System.out.println("setting size " + s);
+		//System.out.println("setting size " + s);
 		if (sprite != null) sprite.setSize(s.x, s.y); 
 	}
 	
@@ -139,7 +138,7 @@ public abstract class GameObject {
 	
 	public void update(float deltaTime) { 
 
-		System.out.println(velocity);
+		//System.out.println(velocity);
 		colX = false;
 		colY = false;
 		
@@ -169,7 +168,7 @@ public abstract class GameObject {
 			}
 		}
         
-        System.out.println("x: " + colX + ", y: " + colY);	
+        //System.out.println("x: " + colX + ", y: " + colY);	
 	}
 	
 	private boolean isCollidingWithAny(ArrayList<Tile> tiles) {
