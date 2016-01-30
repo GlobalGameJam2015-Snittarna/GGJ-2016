@@ -49,8 +49,6 @@ public class Map {
 		return new Level(ret, data);
 	}
 	
-	
-
 	public static void nextLevel() {
 		setLevel(currentLevel + 1);
 	}

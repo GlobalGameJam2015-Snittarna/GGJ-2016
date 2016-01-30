@@ -19,7 +19,7 @@ public class BasicEnemy extends Enemy {
 		
 		this.gravitates = true;
 		
-		setSize(new Vector2(1, 1));
+		setSize(new Vector2(0.9f, 0.9f));
 	}
 	
 	public void update(float deltaTime) {
@@ -30,7 +30,7 @@ public class BasicEnemy extends Enemy {
 				if(!isAttacking()) velocity.x = getSpeed() * deltaTime;
 			}
 			
-			if(colX) {
+			if(colX && !isPlayerAbove()) {
 				velocity.y = 10; 
 			}
 		}

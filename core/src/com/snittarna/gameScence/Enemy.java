@@ -25,6 +25,8 @@ public class Enemy extends Killable {
 	
 	private boolean attacking;
 	
+	private boolean playerAbove;
+	
 	public Enemy(Vector2 position, Animation sprite) {
 		super(position, sprite);
 		
@@ -40,6 +42,8 @@ public class Enemy extends Killable {
 				attackAngle = (float)Math.atan2(g.getPosition().y - getPosition().y, g.getPosition().x - getPosition().x);
 				
 				attacking = (getHitbox().collision(g.getHitbox()));
+				
+				playerAbove = (this.getPosition().y >= g.getPosition().y);
 				
 				if(g.getPosition().x > getPosition().x) {
 					currentPlayerSide = PlayerSide.RIGHT;
@@ -131,5 +135,9 @@ public class Enemy extends Killable {
 	
 	public boolean isAttacking() {
 		return attacking;
+	}
+	
+	public boolean isPlayerAbove() {
+		return this.playerAbove;
 	}
 }
