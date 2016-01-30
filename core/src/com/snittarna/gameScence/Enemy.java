@@ -28,7 +28,7 @@ public class Enemy extends Killable {
 	public Enemy(Vector2 position, Animation sprite) {
 		super(position, sprite);
 		
-		this.setMaxInvicibleTimer(16);
+		this.setMaxInvicibleTimer(4);
 	}
 	
 	public void update(float deltaTime) {

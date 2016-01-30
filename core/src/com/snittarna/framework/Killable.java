@@ -1,5 +1,6 @@
 package com.snittarna.framework;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.Vector2;
 import com.snittarna.gameScence.Projectile;
 
@@ -32,6 +33,9 @@ public class Killable extends GameObject {
 		
 		if(invicibleTimer > 0) {
 			invicibleTimer -= 10 * deltaTime;
+			this.setColor(new Color(1, 0, 0, 1));
+		} else {
+			this.setColor(new Color(1, 1, 1, 1));
 		}
 		
 		if(health <= 0) { 
