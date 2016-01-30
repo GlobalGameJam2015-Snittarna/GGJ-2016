@@ -41,7 +41,7 @@ public class Map {
 			for (int y = 0; y < data.getHeight(); y++) {
 				TileType t = getType(data.getPixel(x, y));
 				if (t != null) {
-					ret.add(new Tile(new Point(x, y), new Vector2(x, y), t));		
+					ret.add(new Tile(new Point(x, -y), new Vector2(x, -y), t));		
 				}
 			}
 		}
@@ -53,7 +53,7 @@ public class Map {
 		TileType[] types = TileType.getAll();
 		for (TileType t : types) {
 			System.out.println(c + ", " + t.getDataColor());
-			if (t.getDataColor().r == c.r && t.getDataColor().g == c.g && t.getDataColor().b == c.b) {
+			if (t.getDataColor().r == c.r && t.getDataColor().g == c.g && t.getDataColor().b == c.b && c.a != 0) {
 				return t;
 			}
 		}
