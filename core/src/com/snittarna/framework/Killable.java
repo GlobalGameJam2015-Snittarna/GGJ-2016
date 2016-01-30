@@ -52,6 +52,10 @@ public class Killable extends GameObject {
 		invicibleTimer = maxInvicibleTimer;
 	}
 	
+	public void onHit() {
+		invicibleTimer = maxInvicibleTimer;
+	}
+	
 	public Type getType() {
 		return this.type;
 	}
@@ -70,5 +74,9 @@ public class Killable extends GameObject {
 	
 	public void setMaxInvicibleTimer(float maxInvicibleTimer) {
 		this.maxInvicibleTimer = maxInvicibleTimer;
+	}
+	
+	public boolean isInvisible() {
+		return (invicibleTimer > 0);
 	}
 }

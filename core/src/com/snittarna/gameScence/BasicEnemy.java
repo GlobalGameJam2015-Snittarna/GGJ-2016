@@ -6,21 +6,18 @@ import com.snittarna.pizza.AssetManager;
 
 public class BasicEnemy extends Enemy {
 
-	public BasicEnemy(Vector2 position) {
-		super(position, new Animation(AssetManager.getTexture("projectile")));
+	public BasicEnemy(Vector2 position, int health, float attackRange, int damage, float speed, Vector2 size, Animation sprite) {
+		super(position, sprite);
 		
 		this.setType(Type.ENEMY);
-		this.setHealth(2);
+		this.setHealth(health);
 		
-		this.setSpeed(150);
-		this.setMaxVelocity(40);
+		this.setSpeed(speed);
 		
-		this.setAttackRange(5);
-		this.setDamage(1);
-		
-		this.gravitates = true;
-		
-		setSize(new Vector2(0.9f, 0.9f));
+		this.setAttackRange(attackRange);
+		this.setDamage(damage);
+
+		setSize(size);
 	}
 	
 	public void update(float deltaTime) {
