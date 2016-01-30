@@ -42,14 +42,10 @@ public class Player extends Killable {
 		
 		setHealth(3);  
 		
-		this.speed = 50f;
-		
+		this.speed = 100f;
 		this.setType(Type.PLAYER);
-		
 		this.shootDirection = ShootDirection.LEFT; 
-		
 		this.projectilePrototype = new Projectile(new Vector2(0, 0), 0, 8, 1, Killable.Type.PLAYER, new Animation(AssetManager.getTexture("projectile")));
-		
 		this.velocity = new Vector2(0, 0);
 		
 		maxFireDelay = 8;
@@ -93,6 +89,10 @@ public class Player extends Killable {
 		
 		if(Gdx.input.isKeyPressed(Keys.UP)) {
 			this.shootDirection = ShootDirection.UP;
+		}
+		
+		if(colY && Gdx.input.isKeyJustPressed(Keys.Z)) {
+			velocity.y = 16;
 		}
 	}
 	
