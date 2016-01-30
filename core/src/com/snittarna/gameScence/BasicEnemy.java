@@ -16,6 +16,7 @@ public class BasicEnemy extends Enemy {
 		this.setMaxVelocity(40);
 		
 		this.setAttackRange(5);
+		this.setDamage(1);
 		
 		this.gravitates = true;
 		

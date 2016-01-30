@@ -13,19 +13,21 @@ public class Enemy extends Killable {
 	private float attackRange;
 	
 	private boolean isAggro;
+	private boolean attacking;
+	private boolean playerAbove;
 	
 	private float shootCount;
 	private float maxShootCount;
 	private float attackAngle;
 	private float speed;
-	
 	private float maxVelocity;
 	
+	private float attackCount;
+	private float maxAttackCount;
+	
+	private int damage;
+	
 	private Projectile projectilePrototype;
-	
-	private boolean attacking;
-	
-	private boolean playerAbove;
 	
 	public Enemy(Vector2 position, Animation sprite) {
 		super(position, sprite);
@@ -36,6 +38,8 @@ public class Enemy extends Killable {
 	public void update(float deltaTime) {
 		super.update(deltaTime);
 		
+		attack(deltaTime);
+		
 		for(GameObject g : getScene().getObjects()) {
 			if(g instanceof Player) {
 				isAggro = (distanceTo(g.getPosition()) <= attackRange);
@@ -43,7 +47,7 @@ public class Enemy extends Killable {
 				
 				attacking = (getHitbox().collision(g.getHitbox()));
 				
-				playerAbove = (this.getPosition().y >= g.getPosition().y);
+				playerAbove = (this.getPosition().y-1 >= g.getPosition().y);
 				
 				if(g.getPosition().x > getPosition().x) {
 					currentPlayerSide = PlayerSide.RIGHT;
@@ -61,6 +65,25 @@ public class Enemy extends Killable {
 			if(shootCount >= maxShootCount) {
 				getScene().addObject(projectilePrototype);
 				shootCount = 0;
+			}
+		}
+	}
+	
+	public void attack(float deltaTime) {
+		if(attacking) {
+			this.attackCount += 10 * deltaTime;
+		
+			if(attackCount >= maxAttackCount) {
+				onAttack();
+				attackCount = 0;
+			}
+		}
+	}
+	
+	public void onAttack() {
+		for(GameObject g : getScene().getObjects()) {
+			if(g instanceof Player) {
+				((Player) g).setHealth(((Player) g).getHealth()-damage);
 			}
 		}
 	}
@@ -139,5 +162,29 @@ public class Enemy extends Killable {
 	
 	public boolean isPlayerAbove() {
 		return this.playerAbove;
+	}
+	
+	public float getAttackCount() {
+		return attackCount;
+	}
+
+	public float getMaxAttackDelay() {
+		return maxAttackCount;
+	}
+
+	public void setAttackDelay(float attackCount) {
+		this.attackCount = attackCount;
+	}
+
+	public void setMaxAttackDelay(float maxAttackDelay) {
+		this.maxAttackCount = maxAttackDelay;
+	}
+	
+	public int getDamage() {
+		return this.damage;
+	}
+	
+	public void setDamage(int damage) {
+		this.damage = damage;
 	}
 }
