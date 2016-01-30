@@ -85,7 +85,7 @@ public class Enemy extends Killable {
 			if(g instanceof Player) {
 				if(!((Player) g).isInvisible()) {
 					((Player) g).setHealth(((Player) g).getHealth()-damage);
-					((Player) g).onHit();
+					if(this.damage > 0) ((Player) g).onHit();
 				}
 			}
 		}
