@@ -55,6 +55,8 @@ public class Player extends Killable {
 		this.projectilePrototype = new Projectile(new Vector2(0, 0), 0, 8, 1, Killable.Type.PLAYER, new Animation(AssetManager.getTexture("projectile")));
 		this.velocity = new Vector2(0, 0);
 		
+		this.setMaxInvicibleTimer(4);
+		
 		maxFireDelay = 8;
 		
 		hpLabel = new Label(new Vector2(-600, 400));
