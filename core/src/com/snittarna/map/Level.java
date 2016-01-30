@@ -10,6 +10,7 @@ import com.snittarna.framework.GameObject;
 import com.snittarna.framework.Point;
 import com.snittarna.framework.Scene;
 import com.snittarna.gameScence.BasicEnemy;
+import com.snittarna.gameScence.LaserEnemy;
 import com.snittarna.gameScence.Player;
 import com.snittarna.pizza.AssetManager;
 
@@ -53,9 +54,11 @@ public class Level {
 			scene.addObject(new BasicEnemy(position, 32, 5, 7, 3, 50, new Vector2(2, 2), new Animation(AssetManager.getTexture("projectile"))));
 			break;
 		case 0x21007Fff:
-			// Small minon
+			// Small minIon
 			scene.addObject(new BasicEnemy(position, 8, 5, 7, 3, 50, new Vector2(0.5f, 0.5f), new Animation(AssetManager.getTexture("projectile"))));
 			break;
+		case 0x00ff00ff:
+			scene.addObject(new LaserEnemy(position));
 		}
 	}
 }
