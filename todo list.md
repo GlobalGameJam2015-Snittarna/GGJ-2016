@@ -3,14 +3,14 @@
 Task | Staus | Person
 -----|-------|-------
 Tile-system | done | Johannes
-Player | not done | Tom
+Player | done | Tom
 Enemies | not done | Johannes & Tom
 Power-up system | not done | Tom
 Projectiles | done | Tom
-Level system | almost done | Johannes
+Level system | done | Johannes
 Visual effects | not done | Tom & Johannes
 Ui-nisse | not done | Johannes
-Physichs | done | Johannes
+Physics | done | Johannes
 
 #### Power ups
 
