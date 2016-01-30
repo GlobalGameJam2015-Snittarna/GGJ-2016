@@ -12,10 +12,10 @@ public class BasicEnemy extends Enemy {
 		this.setType(Type.ENEMY);
 		this.setHealth(2);
 		
-		this.setSpeed(20);
+		this.setSpeed(150);
 		this.setMaxVelocity(40);
 		
-		this.setAttackRange(200);
+		this.setAttackRange(5);
 		
 		this.gravitates = true;
 		
@@ -28,6 +28,10 @@ public class BasicEnemy extends Enemy {
 				if(!isAttacking()) velocity.x = -getSpeed() * deltaTime;
 			} else {
 				if(!isAttacking()) velocity.x = getSpeed() * deltaTime;
+			}
+			
+			if(colX) {
+				velocity.y = 10; 
 			}
 		}
 		super.update(deltaTime);

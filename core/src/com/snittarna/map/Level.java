@@ -8,6 +8,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.snittarna.framework.GameObject;
 import com.snittarna.framework.Point;
 import com.snittarna.framework.Scene;
+import com.snittarna.gameScence.BasicEnemy;
 import com.snittarna.gameScence.Player;
 
 public class Level {
@@ -40,6 +41,9 @@ public class Level {
 		switch(pixel) {
 		case 0xff0000ff:
 			scene.addObject(new Player(position));
+			break;
+		case 0x0070ECff:
+			scene.addObject(new BasicEnemy(position));
 			break;
 		}
 	}
