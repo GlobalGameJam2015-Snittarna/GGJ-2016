@@ -6,7 +6,7 @@ import com.snittarna.pizza.AssetManager;
 
 public class BasicEnemy extends Enemy {
 
-	public BasicEnemy(Vector2 position, int health, float attackRange, int damage, float speed, Vector2 size, Animation sprite) {
+	public BasicEnemy(Vector2 position, float maxAttackDelay, int health, float attackRange, int damage, float speed, Vector2 size, Animation sprite) {
 		super(position, sprite);
 		
 		this.setType(Type.ENEMY);
@@ -16,7 +16,9 @@ public class BasicEnemy extends Enemy {
 		
 		this.setAttackRange(attackRange);
 		this.setDamage(damage);
-
+		
+		this.setMaxAttackDelay(maxAttackDelay);
+		
 		setSize(size);
 	}
 	

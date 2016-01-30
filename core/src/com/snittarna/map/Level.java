@@ -45,7 +45,16 @@ public class Level {
 			scene.addObject(new Player(position));
 			break;
 		case 0x0070ECff:
-			scene.addObject(new BasicEnemy(position, 2, 5, 1, 150, new Vector2(0.9f, 0.9f), new Animation(AssetManager.getTexture("projectile"))));
+			// basic enemy
+			scene.addObject(new BasicEnemy(position, 16, 2, 5, 1, 150, new Vector2(0.9f, 0.9f), new Animation(AssetManager.getTexture("projectile"))));
+			break;
+		case 0x72007Cff:
+			// tank enemy
+			scene.addObject(new BasicEnemy(position, 32, 5, 7, 3, 50, new Vector2(2, 2), new Animation(AssetManager.getTexture("projectile"))));
+			break;
+		case 0x21007Fff:
+			// Small minon
+			scene.addObject(new BasicEnemy(position, 8, 5, 7, 3, 50, new Vector2(0.5f, 0.5f), new Animation(AssetManager.getTexture("projectile"))));
 			break;
 		}
 	}
