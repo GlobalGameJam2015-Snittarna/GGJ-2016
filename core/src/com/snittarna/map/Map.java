@@ -84,4 +84,8 @@ public class Map {
 	public static Level getCurrentLevel() {
 		return levels[currentLevel];
 	}
+
+	public static int getCurrentLevelIndex() {
+		return currentLevel;
+	}
 }

@@ -7,7 +7,9 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.snittarna.framework.Animation;
 import com.snittarna.framework.Killable;
+import com.snittarna.map.Map;
 import com.snittarna.pizza.AssetManager;
+import com.snittarna.ui.Label;
 
 public class Player extends Killable {
 	
@@ -34,6 +36,10 @@ public class Player extends Killable {
 	
 	private float speed;
 	
+	private Label[] labels;
+	private Label hpLabel, levelLabel, scoreLabel, powerupLabel;
+	private int score;
+	
 	//private Vector2 velocity;
 	
 	public Player(Vector2 position) {
@@ -50,6 +56,12 @@ public class Player extends Killable {
 		this.velocity = new Vector2(0, 0);
 		
 		maxFireDelay = 8;
+		
+		hpLabel = new Label(new Vector2(-600, 400));
+		levelLabel = new Label(new Vector2(-600, -400));
+		scoreLabel = new Label(new Vector2(600, 400));
+		powerupLabel = new Label(new Vector2(600, -400));
+		labels = new Label[] { hpLabel, levelLabel, scoreLabel, powerupLabel };
 	}
 	
 	public void update(float deltaTime) {
@@ -70,6 +82,10 @@ public class Player extends Killable {
 		velocity.set(new Vector2(velocity.x*FRICTION, velocity.y));
 
 		//this.setPosition(this.getPosition().cpy().add(new Vector2(velocity.x*deltaTime, velocity.y*deltaTime)));
+		hpLabel.setText("health: " + getHealth());
+		levelLabel.setText("level: " + Map.getCurrentLevelIndex());
+		powerupLabel.setText("powerup: none");
+		scoreLabel.setText("score: " + score);
 	}
 	
 	public void updateInput(float deltaTime) {
@@ -97,6 +113,10 @@ public class Player extends Killable {
 		if(colY && Gdx.input.isKeyJustPressed(Keys.Z)) {
 			velocity.y = 16;
 		}
+	}
+	
+	public void drawUi(SpriteBatch batch) {
+		for (Label l : labels) l.draw(batch);
 	}
 	
 	public void onPowerUp(PowerUp p) {
