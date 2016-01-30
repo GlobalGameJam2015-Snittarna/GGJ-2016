@@ -24,7 +24,7 @@ public class Killable extends GameObject {
 		for(GameObject g : getScene().getObjects()) {
 			if(g instanceof Projectile) {
 				if(g.getHitbox().collision(getHitbox()) && ((Projectile)g).getOwner() != type) {
-					//System.out.println(((Projectile) g).getOwner() + " - " + type);
+					System.out.println(type + " ----- " + ((Projectile)g).getOwner());
 					if(invicibleTimer <= 0) onHit((Projectile) g);
 					((Projectile) g).onHit();
 				}

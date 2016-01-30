@@ -28,7 +28,7 @@ public class BasicEnemy extends Enemy {
 				if(!isAttacking()) velocity.x = -getSpeed() * deltaTime;
 			} else {
 				if(!isAttacking()) velocity.x = getSpeed() * deltaTime;
-			}
+			} 
 			
 			if(colX && !isPlayerAbove()) {
 				velocity.y = 10; 

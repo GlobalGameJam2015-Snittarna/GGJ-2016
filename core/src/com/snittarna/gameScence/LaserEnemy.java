@@ -22,6 +22,8 @@ public class LaserEnemy extends Enemy {
 		
 		this.projectileDamage = damage;
 		this.projectileSpeed = projectileSpeed;
+		
+		this.setType(Type.ENEMY);
 	}
 	
 	public void update(float deltaTime) {
