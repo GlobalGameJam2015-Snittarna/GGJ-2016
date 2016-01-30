@@ -24,20 +24,25 @@ public class Projectile extends GameObject {
 		
 		gravitates = false;
 		
-		sprite.setSize(0.5f, 0.5f);
+		setSize(new Vector2(0.5f, 0.5f));
 	}
 	
 	public void update(float deltaTime) {
+		velocity = this.getVelocity();
+		
+		if(colX || colY) { 
+			onHit();
+		}
+		
 		super.update(deltaTime);
 		
-		this.setPosition(getPosition().cpy().add(new Vector2(velocity().x * deltaTime, velocity().y * deltaTime)));
 	}
 	
 	public void onHit() {
-		this.onRemove();
+		getScene().removeObject(this);
 	}
 	
-	private Vector2 velocity() {
+	private Vector2 getVelocity() {
 		return new Vector2((float)Math.cos(angle) * speed, (float)Math.sin(angle) * speed);
 	}
 	
