@@ -9,6 +9,9 @@ import com.snittarna.map.Map;
 import com.snittarna.pizza.AssetManager;
 
 public class GameScene extends Scene {
+	
+	public boolean nextLevel;
+	
 	public GameScene() {
 		super();
 		Map.load();
@@ -20,6 +23,10 @@ public class GameScene extends Scene {
 	
 	public void update(float deltaTime) {
 		super.update(deltaTime);
+		if (nextLevel)  {
+			nextLevel = false;
+			loadNextLevel();
+		}
 	}
 	
 	public void loadNextLevel() {

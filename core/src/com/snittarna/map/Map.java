@@ -25,9 +25,10 @@ public class Map {
 		TileType[] types = TileType.getAll(); 
 		ResourceReader[] readers = ResourceReader.readObjectList(Gdx.files.internal("maps.gd"));
 		levels = new Level[readers.length];
+		System.out.println(levels.length + " levels");
 		int i = 0;
 		for (ResourceReader r : readers) {
-			levels[i] = loadMap(r);
+			levels[i++] = loadMap(r);
 		}
 	}
 	
@@ -54,7 +55,7 @@ public class Map {
 	}
 	
 	public static void setLevel(int level) {
-		if (level >= 0 && level <levels.length) {
+		if (level >= 0 && level < levels.length) {
 			currentLevel = level;
 		}
 	}

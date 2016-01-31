@@ -59,6 +59,10 @@ public class Level {
 			break;
 		case 0x00ff00ff:
 			scene.addObject(new LaserEnemy(position, 16, 2, 7, 8, 1, new Vector2(0.9f, 0.9f), new Animation(AssetManager.getTexture("projectile"))));
+			break;
+		case 0xffff00ff:
+			scene.addObject(new NextLevelTrigger(position));
+			break;
 		}
 	}
 }
