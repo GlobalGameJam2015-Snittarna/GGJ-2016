@@ -57,7 +57,7 @@ public class Level {
 			break;
 		case 0x72007Cff:
 			// tank enemy
-			scene.addObject(new BasicEnemy(position, 32, 5, 7, 3, 100, new Vector2(2, 2), new Animation(AssetManager.getTexture("projectile")), new Animation(AssetManager.getTexture("projectile"))));
+			scene.addObject(new BasicEnemy(position, 32, 5, 7, 3, 100, new Vector2(2, 2), new Animation(new Sprite(AssetManager.getTexture("tank")), 0.5f, 0 , 0, false), new Animation(AssetManager.getTexture("tank"))));
 			break;
 		case 0x21007Fff:
 			// Small minIon

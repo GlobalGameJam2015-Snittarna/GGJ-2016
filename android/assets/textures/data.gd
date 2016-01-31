@@ -29,5 +29,6 @@ textures: {
 
 	cultistIdle: 0, 654, 94, 123;
 	cultist: 96, 654, 94, 123;
-
+	
+	tank: 80, 796, 174, 228;
 }
