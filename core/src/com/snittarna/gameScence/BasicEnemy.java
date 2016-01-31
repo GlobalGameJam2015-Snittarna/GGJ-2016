@@ -31,7 +31,7 @@ public class BasicEnemy extends Enemy {
 				if(!isAttacking()) velocity.x = getSpeed() * deltaTime;
 				getSprite().setFlip(true, false);
 			} 
-			System.out.println(getSprite().isFlipX() + "FLIP");
+			
 			if(colX && !isPlayerAbove()) {
 				velocity.y = 10; 
 			}
