@@ -21,7 +21,7 @@ public class Menu {
 		if (Gdx.input.isKeyJustPressed(Keys.DOWN)) selected++;
 		if (selected >= buttons.length) selected = 0;
 		
-		if (Gdx.input.isKeyJustPressed(Keys.ENTER)) {
+		if (Gdx.input.isKeyJustPressed(Keys.Z) || Gdx.input.isKeyJustPressed(Keys.X) || Gdx.input.isKeyJustPressed(Keys.SPACE)) {
 			buttons[selected].onClick();
 		}
 	}

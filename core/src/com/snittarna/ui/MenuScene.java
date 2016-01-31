@@ -19,6 +19,7 @@ public class MenuScene extends Scene {
 	}
 	
 	public void drawUi(SpriteBatch batch) {
+		drawTutorial(batch);
 		drawTitle(batch, title);
 		menu.draw(batch);
 	}
@@ -26,5 +27,10 @@ public class MenuScene extends Scene {
 	private void drawTitle(SpriteBatch batch, String title) {
 		GlyphLayout g = new GlyphLayout(AssetManager.font, title);
 		AssetManager.font.draw(batch, g, 0 - g.width / 2, 250);
+	}
+	
+	private void drawTutorial(SpriteBatch batch) {
+		GlyphLayout g = new GlyphLayout(AssetManager.font, "Arrow keys to move, Z to jump, X to shoot \n Reach of level");
+		AssetManager.font.draw(batch, g, 0 - g.width / 2, -250);
 	}
 }
