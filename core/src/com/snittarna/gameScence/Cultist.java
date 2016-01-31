@@ -31,6 +31,7 @@ public class Cultist extends Killable {
 		this.setSize(new Vector2(1.5f, 2.5f));
 		this.maxSpawnCount = 8;
 		this.maxSpawnDelay = 5;
+		this.setMaxInvicibleTimer(2);
 		
 		idle = new Animation(AssetManager.getTexture("cultistIdle"));
 		active = new Animation(AssetManager.getTexture("cultist"));

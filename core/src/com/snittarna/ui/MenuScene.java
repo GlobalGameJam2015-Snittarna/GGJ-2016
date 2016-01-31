@@ -30,7 +30,7 @@ public class MenuScene extends Scene {
 	}
 	
 	private void drawTutorial(SpriteBatch batch) {
-		GlyphLayout g = new GlyphLayout(AssetManager.font, "Arrow keys to move, Z to jump, X to shoot \n Reach of level");
+		GlyphLayout g = new GlyphLayout(AssetManager.font, "Arrow keys to move, Z to jump, X to shoot \n Reach the end of the level, kill the cultist to open the portal");
 		AssetManager.font.draw(batch, g, 0 - g.width / 2, -250);
 	}
 }

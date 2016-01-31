@@ -26,6 +26,6 @@ public class MainMenuScene extends MenuScene {
 						Gdx.app.exit();
 					}
 				}, "quit")
-		}), "zeal the deal :^))");
+		}), "zeal the deal");
 	}	
 }
