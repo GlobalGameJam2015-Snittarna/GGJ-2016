@@ -5,7 +5,7 @@ Task | Staus | Person
 Tile-system | done | Johannes
 Player | done | Tom
 Enemies | almost done | Johannes & Tom
-Power-up system | not done | Tom
+Power-up system | done | Tom
 Projectiles | done | Tom
 Level system | done | Johannes
 Visual effects | not done | Tom & Johannes
@@ -16,5 +16,5 @@ Physics | done | Johannes
 
 Type | Description | Status
 -----|-------------|-------
-Projectile | Spread shot | not done
-Projectile | More damage | not done
+Projectile | Spread shot |  done
+Projectile | More damage |  done
