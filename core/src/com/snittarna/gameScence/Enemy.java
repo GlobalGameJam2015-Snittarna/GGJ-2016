@@ -37,7 +37,7 @@ public class Enemy extends Killable {
 	
 	public void update(float deltaTime) {
 		super.update(deltaTime);
-		
+		getSprite().animate(deltaTime);
 		attack(deltaTime);
 		
 		for(GameObject g : getScene().getObjects()) {

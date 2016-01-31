@@ -9,4 +9,6 @@ textures: {
 	laserEnemy: 0, 0, 32, 32;
 	
 	error: 100, 100, 100, 50;
+	
+	basicEnemy: 132, 0, 64, 45;
 }

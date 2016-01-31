@@ -3,6 +3,7 @@ package com.snittarna.map;
 import java.util.ArrayList;
 
 import com.badlogic.gdx.graphics.Pixmap;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.snittarna.framework.Animation;
@@ -47,7 +48,7 @@ public class Level {
 			break;
 		case 0x0070ECff:
 			// basic enemy
-			scene.addObject(new BasicEnemy(position, 16, 2, 5, 1, 150, new Vector2(0.9f, 0.9f), new Animation(AssetManager.getTexture("projectile"))));
+			scene.addObject(new BasicEnemy(position, 16, 2, 5, 1, 150, new Vector2(0.9f, 0.9f), new Animation(new Sprite(AssetManager.getTexture("basicEnemy")), 1, 4, 0, false)));
 			break;
 		case 0x72007Cff:
 			// tank enemy
