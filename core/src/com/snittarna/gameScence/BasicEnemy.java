@@ -43,7 +43,6 @@ public class BasicEnemy extends Enemy {
 			} else {
 				setSprite(walk);
 			}
-			System.out.println(getSprite());
 			
 			if(colX && !isPlayerAbove()) {
 				velocity.y = 10; 
