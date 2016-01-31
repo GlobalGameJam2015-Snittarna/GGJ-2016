@@ -1,8 +1,10 @@
 package com.snittarna.gameScence;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.snittarna.framework.Animation;
+import com.snittarna.framework.Killable;
 import com.snittarna.pizza.AssetManager;
 
 public class BarrierEnemy extends LaserEnemy {
@@ -17,10 +19,6 @@ public class BarrierEnemy extends LaserEnemy {
 			int damage, Vector2 size, Animation sprite) {
 		super(position, maxShootCount, health, attackRange, projectileSpeed, damage, size, sprite);
 		
-		shield = new Animation(AssetManager.getTexture("projectile"));
-		shield.setSize(1, 1);
-		shield.setColor(0, 0, 1, 0.5f);
-		
 		this.maxVunrableCount = 20;
 	}
 	
@@ -29,22 +27,30 @@ public class BarrierEnemy extends LaserEnemy {
 		
 		vunrableCount += 10 * deltaTime;
 		
-		shield.setPosition(this.getPosition().x, this.getPosition().x);
-		
 		if(vunrableCount >= maxVunrableCount) {
 			vunrableCount = 0;
 			vunrable = !vunrable;
-		}
+		} 
 		
 		setShootCount(0);
 	}
 	
-	public void draw(SpriteBatch batch) {
-		super.draw(batch);
-		
-		if(!vunrable) {
-			shield.draw(batch);
-			System.out.println("AYY BARIER");
+	public void onHit(Projectile p) {
+		if(!vunrable) { 
+			setHealth(getHealth()+p.getDamage());
+			getScene().addObject(new Projectile(getPosition().cpy().add(new Vector2(getSize().x/4, getSize().y/4)), getAttackAngle(), p.getSpeed(), p.getDamage(), Killable.Type.ENEMY, new Animation(AssetManager.getTexture("projectile"))));
 		}
+		super.onHit(p);
+	}
+	
+	public void draw(SpriteBatch batch) {
+		if(!vunrable) {
+			this.setColor(new Color(0.5f, 0.5f, 1f, 1f));
+			System.out.println("AYY BARIER");
+		} else {
+			this.setColor(new Color(1f, 1f, 1f, 1f));
+			System.out.println("NO BARIER");
+		}
+		super.draw(batch);
 	}
 }

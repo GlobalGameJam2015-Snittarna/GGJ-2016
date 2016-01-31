@@ -33,7 +33,7 @@ public abstract class Scene {
 
 	public Vector3 cameraPosition;
 
-	public ArrayList<GameObject> getObjects() { System.out.println(objects == null); return objects; }
+	public ArrayList<GameObject> getObjects() { /*System.out.println(objects == null);*/ return objects; }
 	
 	public Scene() {
 		objects = new ArrayList<GameObject>();
