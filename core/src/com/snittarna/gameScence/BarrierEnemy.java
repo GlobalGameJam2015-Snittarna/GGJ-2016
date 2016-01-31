@@ -46,7 +46,7 @@ public class BarrierEnemy extends LaserEnemy {
 	public void onHit(Projectile p) {
 		if(!vunrable) { 
 			setHealth(getHealth()+p.getDamage());
-			getScene().addObject(new Projectile(getPosition().cpy().add(new Vector2(getSize().x/4, getSize().y/4)), getAttackAngle(), p.getSpeed(), p.getDamage(), Killable.Type.ENEMY, new Animation(AssetManager.getTexture("projectile"))));
+			getScene().addObject(new Projectile(getPosition().cpy().add(new Vector2(getSize().x/4, getSize().y/2)), getAttackAngle(), p.getSpeed(), p.getDamage(), Killable.Type.ENEMY, new Animation(AssetManager.getTexture("projectile"))));
 		}
 		super.onHit(p);
 	}

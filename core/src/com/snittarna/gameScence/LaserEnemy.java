@@ -35,7 +35,7 @@ public class LaserEnemy extends Enemy {
 	
 	public void update(float deltaTime) {
 		if(!isPlayerAbove()) shoot(deltaTime);
-		this.setProjectilePrototype(new Projectile(getPosition().cpy().add(new Vector2(getSize().x/4, getSize().y/4)), getAttackAngle(), projectileSpeed, projectileDamage, Killable.Type.ENEMY, new Animation(AssetManager.getTexture("projectile"))));
+		this.setProjectilePrototype(new Projectile(getPosition().cpy().add(new Vector2(getSize().x/4, getSize().y/2)), getAttackAngle(), projectileSpeed, projectileDamage, Killable.Type.ENEMY, new Animation(AssetManager.getTexture("projectile"))));
 		
 		if(this.getShootCount() >= this.getMaxShootCount()-2) {
 			this.setSprite(attack);
