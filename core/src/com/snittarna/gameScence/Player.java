@@ -95,7 +95,7 @@ public class Player extends Killable {
 
 		//this.setPosition(this.getPosition().cpy().add(new Vector2(velocity.x*deltaTime, velocity.y*deltaTime)));
 		hpLabel.setText("health: " + getHealth());
-		levelLabel.setText("level: " + Map.getCurrentLevelIndex());
+		levelLabel.setText("level: " + (Map.getCurrentLevelIndex() + 1));
 		powerupLabel.setText("powerup: " + currentShootPattern);
 		scoreLabel.setText("score: " + score);
 		
