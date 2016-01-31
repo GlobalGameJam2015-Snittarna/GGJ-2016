@@ -19,7 +19,7 @@ public class BarrierEnemy extends LaserEnemy {
 			int damage, Vector2 size, Animation sprite) {
 		super(position, maxShootCount, health, attackRange, projectileSpeed, damage, size, sprite);
 		
-		this.setDamage(1);
+		this.setMaxInvicibleTimer(1.5f);
 		
 		this.maxVunrableCount = 20;
 	}
@@ -33,6 +33,12 @@ public class BarrierEnemy extends LaserEnemy {
 			vunrableCount = 0;
 			vunrable = !vunrable;
 		} 
+		
+		if(vunrable) {
+			this.setDamage(1);
+		} else {
+			this.setDamage(0);
+		}
 		
 		setShootCount(0);
 	}

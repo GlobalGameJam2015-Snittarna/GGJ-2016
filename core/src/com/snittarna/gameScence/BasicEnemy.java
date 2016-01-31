@@ -26,6 +26,8 @@ public class BasicEnemy extends Enemy {
 		
 		setSize(size);
 		setOrigin(new Vector2(getOrigin().x, getOrigin().y + 7));
+		
+		this.setWorth(getHealth() * 100 + 100);
 	}
 	
 	public void update(float deltaTime) {

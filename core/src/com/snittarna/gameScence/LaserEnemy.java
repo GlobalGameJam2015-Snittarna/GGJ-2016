@@ -23,6 +23,8 @@ public class LaserEnemy extends Enemy {
 		this.projectileDamage = damage;
 		this.projectileSpeed = projectileSpeed;
 		
+		this.setWorth(getHealth() * 100 + 100);
+		
 		this.setType(Type.ENEMY);
 	}
 	

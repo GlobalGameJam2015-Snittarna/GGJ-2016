@@ -27,6 +27,8 @@ public class Enemy extends Killable {
 	
 	private int damage;
 	
+	private int worth;
+	
 	private Projectile projectilePrototype;
 	
 	public Enemy(Vector2 position, Animation sprite) {
@@ -89,6 +91,15 @@ public class Enemy extends Killable {
 				}
 			}
 		}
+	}
+	
+	public void onDeath() {
+		for(GameObject g : getScene().getObjects()) {
+			if(g instanceof Player) {
+				((Player) g).raiseScore(worth);
+			}
+		}
+		super.onDeath();
 	}
 	
 	public float getAttackRange() {
@@ -189,5 +200,9 @@ public class Enemy extends Killable {
 	
 	public void setDamage(int damage) {
 		this.damage = damage;
+	}
+	
+	public void setWorth(int worth) {
+		this.worth = worth;
 	}
 }

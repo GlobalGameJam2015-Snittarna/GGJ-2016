@@ -149,4 +149,8 @@ public class Player extends Killable {
 		this.maxFireDelay = p.getMaxFireDelay();
 		this.projectilePrototype = new Projectile(new Vector2(0, 0), 0, p.getSpeed(), p.getDamage(), Killable.Type.PLAYER, new Animation(AssetManager.getTexture("projectile")));
 	}
+	
+	public void raiseScore(int value) {
+		this.score += value;
+	}
 }
