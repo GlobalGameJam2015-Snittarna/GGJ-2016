@@ -11,6 +11,7 @@ Level system | done | Johannes
 Visual effects | not done | Tom & Johannes
 Ui-nisse | not done | Johannes
 Physics | done | Johannes
+Build levels | not done | johannes and tom
 
 #### Power ups
 
