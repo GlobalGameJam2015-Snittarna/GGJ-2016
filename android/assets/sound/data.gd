@@ -10,5 +10,6 @@ sounds: {
 	game-over: game-over;
 	game-win: game-win;
 	enemy-hit: player-hit;
+	powerup: powerup;
 }
 

@@ -17,6 +17,10 @@ import com.snittarna.ui.Label;
 
 public class Player extends Killable {
 	
+	public static final int DEFAULT_DAMAGE = 1;
+	public static final float DEFAULT_SPEED = 8;
+	public static final float DEFAULT_DELAY = 8;
+	
 	enum ShootDirection { 
 		LEFT ((float)Math.PI), RIGHT (0), UP ((float)Math.PI/2);
 		
@@ -60,13 +64,13 @@ public class Player extends Killable {
 		this.speed = 100f;
 		this.setType(Type.PLAYER);
 		this.shootDirection = ShootDirection.LEFT; 
-		this.projectilePrototype = new Projectile(new Vector2(0, 0), 0, 8, 1, Killable.Type.PLAYER, new Animation(AssetManager.getTexture("projectile")));
+		this.projectilePrototype = new Projectile(new Vector2(0, 0), 0, DEFAULT_SPEED, DEFAULT_DAMAGE, Killable.Type.PLAYER, new Animation(AssetManager.getTexture("projectile")));
 		this.velocity = new Vector2(0, 0);
 		this.currentShootPattern = Pattern.NORMAL;
 		
 		this.setMaxInvicibleTimer(4);
 		
-		maxFireDelay = 8;
+		maxFireDelay = DEFAULT_DELAY;
 		
 		hpLabel = new Label(new Vector2(-600, 400));
 		levelLabel = new Label(new Vector2(-600, -400));

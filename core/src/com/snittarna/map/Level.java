@@ -16,6 +16,7 @@ import com.snittarna.gameScence.Boss;
 import com.snittarna.gameScence.Cultist;
 import com.snittarna.gameScence.LaserEnemy;
 import com.snittarna.gameScence.Player;
+import com.snittarna.gameScence.PowerUp;
 import com.snittarna.pizza.AssetManager;
 
 public class Level {
@@ -77,6 +78,8 @@ public class Level {
 		case 0xffff00ff:
 			scene.addObject(new NextLevelTrigger(position));
 			break;
+		case 0x80144Eff:
+			scene.addObject(new PowerUp(position, PowerUp.Pattern.SPREAD, Player.DEFAULT_DAMAGE, Player.DEFAULT_SPEED, Player.DEFAULT_DELAY));
 		}
 	}
 }
