@@ -25,7 +25,7 @@ public class GameScene extends Scene {
 		background.setSize(20, 10);
 		//addObject(new Projectile(new Vector2(0, 0), (float)Math.PI/2, (float)Math.PI/2, 1, new Killable(new Vector2(0, 0), new Animation(AssetManager.getTexture("projectile"))), new Animation(AssetManager.getTexture("projectile"))));
 		//addObject(new Projectile(new Vector2(0, 0), (float)Math.PI/2, (float)Math.PI/2, 1, Killable.Type.PLAYER, new Animation(AssetManager.getTexture("projectile"))));
-		//addObject(new Player(new Vector2(1, 4)));
+		//addObject(new Cultist(new Vector2(1, 4), 5));
 	}
 	
 	public void update(float deltaTime) {
