@@ -63,6 +63,7 @@ public class Cultist extends Killable {
 				
 				if(spawnDelay >= maxSpawnDelay) {
 					spawnRandomEnemy();
+					AssetManager.getSound("cultist-spawn").play();
 					spawnDelay = 0;
 				}
 			}
@@ -75,6 +76,16 @@ public class Cultist extends Killable {
 			this.setColor(new Color(1, 1, 1, 1));
 			setSprite(idle);
 		}
+	}
+	
+	public void onHit(Projectile p) {
+		super.onHit(p);
+		AssetManager.getSound("cultist-damage").play();
+	}
+	
+	public void onRemove() {
+		super.onRemove();
+		AssetManager.getSound("cultist-death").play();
 	}
 	
 	public void spawnRandomEnemy() {

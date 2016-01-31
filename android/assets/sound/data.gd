@@ -11,5 +11,8 @@ sounds: {
 	game-win: game-win;
 	enemy-hit: player-hit;
 	powerup: powerup;
+	cultist-damage: cultist-damage;
+	cultist-death: cultist-death;
+	cultist-spawn: cultist-spawn;
 }
 
