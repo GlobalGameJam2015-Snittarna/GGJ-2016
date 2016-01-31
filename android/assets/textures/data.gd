@@ -21,13 +21,13 @@ textures: {
 	
 	background: 317, 72, 640, 320;
 	
-<<<<<<< Updated upstream
+
 	cultistIdle: 0, 658, 100, 123;
 	cultistAnimation: 100, 658, 100, 123;
 	
 	powerup: 13, 802, 43, 43;
-=======
+
 	cultistIdle: 0, 654, 94, 123;
 	cultist: 96, 654, 94, 123;
->>>>>>> Stashed changes
+
 }
