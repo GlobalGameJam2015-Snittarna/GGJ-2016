@@ -20,4 +20,7 @@ textures: {
 	portal: 0, 413, 239, 227;
 	
 	background: 317, 72, 640, 320;
+	
+	cultistIdle: 0, 658, 100, 123;
+	cultistAnimation: 100, 658, 100, 123;
 }

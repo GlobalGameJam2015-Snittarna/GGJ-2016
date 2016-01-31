@@ -22,10 +22,10 @@ public class Cultist extends Killable {
 	private boolean aggro;
 	
 	public Cultist(Vector2 position, int health) {
-		super(position, new Animation(AssetManager.getTexture("projectile")));
+		super(position, new Animation(AssetManager.getTexture("cultistIdle")));
 		this.setHealth(health);
 		
-		this.setSize(new Vector2(1, 1.5f));
+		this.setSize(new Vector2(1.5f, 2.5f));
 		this.maxSpawnCount = 8;
 		this.maxSpawnDelay = 5;
 	}
@@ -77,10 +77,10 @@ public class Cultist extends Killable {
 		
 		switch(type) {
 		case 0:
-			getScene().addObject(new BasicEnemy(position, 8, 1, 5, 1, 150, new Vector2(0.9f, 0.9f), new Animation(new Sprite(AssetManager.getTexture("basicEnemy")), 0.3f, 3, 0, false), new Animation(new Sprite(AssetManager.getTexture("basicEnemyAttack")), 0.3f, 2, 0, false)));
+			getScene().addObject(new BasicEnemy(position, 8, 1, 5, 1, 50, new Vector2(0.9f, 0.9f), new Animation(new Sprite(AssetManager.getTexture("basicEnemy")), 0.3f, 3, 0, false), new Animation(new Sprite(AssetManager.getTexture("basicEnemyAttack")), 0.3f, 2, 0, false)));
 			break;
 		case 1:
-			getScene().addObject(new BasicEnemy(position, 4, 1, 7, 3, 250, new Vector2(0.5f, 0.5f), new Animation(AssetManager.getTexture("projectile")), new Animation(AssetManager.getTexture("projectile"))));
+			getScene().addObject(new BasicEnemy(position, 8, 1, 7, 1, 100, new Vector2(0.5f, 0.5f), new Animation(AssetManager.getTexture("projectile")), new Animation(AssetManager.getTexture("projectile"))));
 			break;
 		}
 	}
