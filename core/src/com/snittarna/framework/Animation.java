@@ -91,6 +91,10 @@ public class Animation extends Sprite {
 		return this.maxFrame;
 	}
 	
+	public int getMinFrame() {
+		return this.minFrame;
+	}
+	
 	public int getCurrentFrame() {
 		return this.currentFrame;
 	}

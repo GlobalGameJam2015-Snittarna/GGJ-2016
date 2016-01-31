@@ -46,10 +46,8 @@ public class BarrierEnemy extends LaserEnemy {
 	public void draw(SpriteBatch batch) {
 		if(!vunrable) {
 			this.setColor(new Color(0.5f, 0.5f, 1f, 1f));
-			System.out.println("AYY BARIER");
 		} else {
 			this.setColor(new Color(1f, 1f, 1f, 1f));
-			System.out.println("NO BARIER");
 		}
 		super.draw(batch);
 	}

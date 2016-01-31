@@ -116,6 +116,10 @@ public class Player extends Killable {
 			this.shootDirection = ShootDirection.UP;
 		}
 		
+		if(!Gdx.input.isKeyPressed(Keys.RIGHT) && !Gdx.input.isKeyPressed(Keys.LEFT)) {
+			this.getSprite().setCurrentFrame(getSprite().getMinFrame());
+		}
+		
 		if(colY && Gdx.input.isKeyJustPressed(Keys.Z)) {
 			velocity.y = 16;
 		}
