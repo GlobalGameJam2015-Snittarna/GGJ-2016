@@ -15,11 +15,15 @@ public class WinScene extends MenuScene {
 		super(new Menu(new MenuButton[] {
 				new MenuButton(new Vector2(0, 100), new Action() {
 					public void call() {
-						System.out.println("lol");
 						Game.setScene(new GameScene());
 					}
-				}, "play"),
+				}, "play again"),
 				new MenuButton(new Vector2(0, 0), new Action() {
+					public void call() {
+						Game.setScene(new MainMenuScene());
+					}
+				}, "main menu"),
+				new MenuButton(new Vector2(0, -100), new Action() {
 					public void call() {
 						System.out.println("quit");
 						Gdx.app.exit();
