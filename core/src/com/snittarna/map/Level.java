@@ -62,7 +62,7 @@ public class Level {
 			scene.addObject(new BasicEnemy(position, 8, 5, 7, 3, 50, new Vector2(0.5f, 0.5f), new Animation(AssetManager.getTexture("projectile")), new Animation(AssetManager.getTexture("projectile"))));
 			break;
 		case 0x00ff00ff:
-			scene.addObject(new LaserEnemy(position, 16, 2, 7, 8, 1, new Vector2(0.9f, 0.9f), new Animation(new Sprite(AssetManager.getTexture("laserEnemy")), 0.3f, 4, 0, false)));
+			scene.addObject(new LaserEnemy(position, 16, 2, 7, 8, 1, new Vector2(0.9f, 0.9f), new Animation(new Sprite(AssetManager.getTexture("laserEnemy")), 0.3f, 4, 0, false), new Animation(AssetManager.getTexture("laserEnemyAttack"))));
 			break;
 		case 0x7FFF8Eff:
 			scene.addObject(new BarrierEnemy(position, 16, 2, 7, 8, 1, new Vector2(0.9f, 0.9f), new Animation(AssetManager.getTexture("projectile"))));

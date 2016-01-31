@@ -11,8 +11,13 @@ public class LaserEnemy extends Enemy {
 	
 	private int projectileDamage;
 	
-	public LaserEnemy(Vector2 position, float maxShootCount, int health, float attackRange, float projectileSpeed, int damage, Vector2 size, Animation sprite) {
-		super(position, sprite);
+	Animation attack, walk;
+	
+	public LaserEnemy(Vector2 position, float maxShootCount, int health, float attackRange, float projectileSpeed, int damage, Vector2 size, Animation walk, Animation attack) {
+		super(position, walk);
+		
+		this.walk = walk;
+		this.attack = attack;
 		
 		this.setSize(size);
 		this.setHealth(health);
@@ -31,6 +36,13 @@ public class LaserEnemy extends Enemy {
 	public void update(float deltaTime) {
 		if(!isPlayerAbove()) shoot(deltaTime);
 		this.setProjectilePrototype(new Projectile(getPosition().cpy().add(new Vector2(getSize().x/4, getSize().y/4)), getAttackAngle(), projectileSpeed, projectileDamage, Killable.Type.ENEMY, new Animation(AssetManager.getTexture("projectile"))));
+		
+		if(this.getShootCount() >= this.getMaxShootCount()-2) {
+			this.setSprite(attack);
+		} else {
+			this.setSprite(walk);
+		}
+		
 		super.update(deltaTime);
 	}
 	

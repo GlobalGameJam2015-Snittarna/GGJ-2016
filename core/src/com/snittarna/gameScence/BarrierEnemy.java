@@ -17,7 +17,7 @@ public class BarrierEnemy extends LaserEnemy {
 	
 	public BarrierEnemy(Vector2 position, float maxShootCount, int health, float attackRange, float projectileSpeed,
 			int damage, Vector2 size, Animation sprite) {
-		super(position, maxShootCount, health, attackRange, projectileSpeed, damage, size, sprite);
+		super(position, maxShootCount, health, attackRange, projectileSpeed, damage, size, sprite, sprite);
 		
 		this.setMaxInvicibleTimer(1.5f);
 		
