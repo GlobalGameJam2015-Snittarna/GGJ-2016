@@ -26,10 +26,12 @@ public class BasicEnemy extends Enemy {
 		if(this.isAggro()) {
 			if(getCurrentPlayerSide() == PlayerSide.LEFT) {
 				if(!isAttacking()) velocity.x = -getSpeed() * deltaTime;
+				getSprite().setFlip(false, false);
 			} else {
 				if(!isAttacking()) velocity.x = getSpeed() * deltaTime;
+				getSprite().setFlip(true, false);
 			} 
-			
+			System.out.println(getSprite().isFlipX() + "FLIP");
 			if(colX && !isPlayerAbove()) {
 				velocity.y = 10; 
 			}
