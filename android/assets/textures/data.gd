@@ -11,6 +11,7 @@ textures: {
 	error: 100, 100, 100, 50;
 	
 	basicEnemy: 132, 0, 64, 45;
+	basicEnemyAttack: 390, 1, 64, 55;
 	
 	player: 10, 160, 77, 128;
 }

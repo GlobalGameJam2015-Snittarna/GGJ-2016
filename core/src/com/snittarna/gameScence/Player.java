@@ -24,6 +24,8 @@ public class Player extends Killable {
 		}
 	}
 	
+	private boolean flip;
+	
 	final float FRICTION = 0.8f;
 	
 	private float currentFireDelay;
@@ -102,14 +104,14 @@ public class Player extends Killable {
 			this.shootDirection = ShootDirection.LEFT;
 			
 			velocity.add(new Vector2(-speed * deltaTime, 0));
-			getSprite().setFlip(true, false);
+			flip = true;
 		}
 		
 		if(Gdx.input.isKeyPressed(Keys.RIGHT)) {
 			this.shootDirection = ShootDirection.RIGHT;
 			
 			velocity.add(new Vector2(speed * deltaTime, 0));
-			getSprite().setFlip(false, false);
+			flip = false;
 		}
 		
 		if(Gdx.input.isKeyPressed(Keys.UP)) {
@@ -127,6 +129,11 @@ public class Player extends Killable {
 	
 	public void drawUi(SpriteBatch batch) {
 		for (Label l : labels) l.draw(batch);
+	}
+	
+	public void draw(SpriteBatch batch) {
+		getSprite().setFlip(flip, false);
+		super.draw(batch);
 	}
 	
 	public void onPowerUp(PowerUp p) {
