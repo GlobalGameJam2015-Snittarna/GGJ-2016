@@ -4,6 +4,7 @@ textures: {
 	
 	groundTile: 0, 0, 64, 64;
 	groundTile_02: 64, 0, 64, 64;	
+	middleGroundTile: 0, 64, 64, 64;
 	lvl1: 0, 0, 3, 3;
 	
 	laserEnemy: 0, 299, 43, 70;
