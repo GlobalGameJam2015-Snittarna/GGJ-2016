@@ -13,6 +13,7 @@ import com.snittarna.framework.Scene;
 import com.snittarna.gameScence.BarrierEnemy;
 import com.snittarna.gameScence.BasicEnemy;
 import com.snittarna.gameScence.Boss;
+import com.snittarna.gameScence.Cultist;
 import com.snittarna.gameScence.LaserEnemy;
 import com.snittarna.gameScence.Player;
 import com.snittarna.pizza.AssetManager;
@@ -69,6 +70,9 @@ public class Level {
 			break;
 		case 0x6D7F3Fff:
 			scene.addObject(new Boss(position));
+			break;
+		case 0xFF7FEDff:
+			scene.addObject(new Cultist(position, 3));
 			break;
 		case 0xffff00ff:
 			scene.addObject(new NextLevelTrigger(position));
