@@ -16,6 +16,8 @@ public class Animation extends Sprite {
 	
 	private boolean vertical;
 	
+	private float orginalRegionX;
+	
 	public Animation(Texture sprite){
 		super(sprite);
 	}
@@ -32,11 +34,13 @@ public class Animation extends Sprite {
 		super(new Sprite(region));
 		setSize(size.x, size.y);
 		setColor(color);
+		this.orginalRegionX = this.getRegionX();
 	}
 	
 	public Animation(Sprite sprite, float maxAnimationTime, int maxFrame, int minFrame, boolean vertical){
 		super(sprite);
 		setAnimation(maxAnimationTime, maxFrame, minFrame, vertical);
+		this.orginalRegionX = this.getRegionX();
 	}
 	
 	public Vector2 getSize() {
@@ -50,7 +54,7 @@ public class Animation extends Sprite {
 	public void setAnimation(float maxAnimationTime, int maxFrame, int minFrame, boolean vertical) {
 		this.maxAnimationTime = maxAnimationTime;
 		this.maxFrame = maxFrame;
-		this.minFrame = minFrame;
+		this.minFrame = this.getRegionX() / this.getRegionWidth();
 		this.vertical = vertical;
 	}
 	
@@ -79,6 +83,10 @@ public class Animation extends Sprite {
 	
 	public void setCurrentFrame(int currentFrame) {
 		this.currentFrame = currentFrame;
+	}
+	
+	public int getMaxFrame() {
+		return this.maxFrame;
 	}
 	
 	public int getCurrentFrame() {
