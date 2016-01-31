@@ -10,6 +10,7 @@ import com.snittarna.framework.Animation;
 import com.snittarna.framework.GameObject;
 import com.snittarna.framework.Point;
 import com.snittarna.framework.Scene;
+import com.snittarna.gameScence.BarrierEnemy;
 import com.snittarna.gameScence.BasicEnemy;
 import com.snittarna.gameScence.LaserEnemy;
 import com.snittarna.gameScence.Player;
@@ -61,6 +62,9 @@ public class Level {
 			break;
 		case 0x00ff00ff:
 			scene.addObject(new LaserEnemy(position, 16, 2, 7, 8, 1, new Vector2(0.9f, 0.9f), new Animation(AssetManager.getTexture("projectile"))));
+			break;
+		case 0x7FFF8Eff:
+			scene.addObject(new BarrierEnemy(position, 16, 2, 7, 8, 1, new Vector2(0.9f, 0.9f), new Animation(AssetManager.getTexture("projectile"))));
 			break;
 		case 0xffff00ff:
 			scene.addObject(new NextLevelTrigger(position));
