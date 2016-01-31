@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.snittarna.framework.Scene;
 import com.snittarna.gameScence.GameScene;
+import com.snittarna.ui.MainMenuScene;
 
 public class Game extends ApplicationAdapter {
 	SpriteBatch batch, uiBatch;
@@ -29,7 +30,7 @@ public class Game extends ApplicationAdapter {
 		//Input.initialize(900, 1600, 450, 800); // defined in scenes. 
 		
 		batch = new SpriteBatch();
-		currentScene = new GameScene();
+		currentScene = new MainMenuScene(); //new GameScene();
 		
 		AssetManager.load();
 	}
