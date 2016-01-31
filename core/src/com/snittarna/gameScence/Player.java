@@ -109,10 +109,23 @@ public class Player extends Killable {
 	}
 	
 	public void setHealth(int health) {
-		//if (health < getHealth()) AssetManager.getSound("player-hurt").play();
+		if (health < getHealth()) hit();
 		super.setHealth(health);
 		if (health <= 0) {
-			//Game.setScene(new GameOverScene(score));
+			Game.setScene(new GameOverScene(score));
+		}
+	}
+	
+	private void hit() {
+		AssetManager.getSound("player-hurt").play();
+		getScene().setScreenShake(.2f);
+	}
+	
+	public void onHit(Projectile p) {
+		super.onHit(p);
+		hit();
+		if (getHealth() <= 0) {
+			Game.setScene(new GameOverScene(score));
 		}
 	}
 	
