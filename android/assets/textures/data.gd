@@ -7,7 +7,7 @@ textures: {
 	lvl1: 0, 0, 3, 3;
 	
 	laserEnemy: 0, 299, 43, 70;
-	laserEnemyAttack: 168, 299, 43, 70;
+	laserEnemyAttack: 175, 299, 43, 70;
 	
 	error: 100, 100, 100, 50;
 	

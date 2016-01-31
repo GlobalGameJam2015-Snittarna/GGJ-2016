@@ -49,7 +49,7 @@ public class Player extends Killable {
 	public Player(Vector2 position) {
 		super(position, new Animation(new Sprite(AssetManager.getTexture("player")), .2f, 4, (int)1e10, false));
 		Map.player = this;
-		setSize(new Vector2(0.99f, 0.99f));
+		setSize(new Vector2(0.99f, 0.99f*1.5f));
 		
 		setHealth(8);  
 		
