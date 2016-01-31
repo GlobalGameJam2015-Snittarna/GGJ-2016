@@ -5,3 +5,7 @@ lvl1: {
 lvl2: {
 	data: lvl2.png;
 }
+
+lvl3: {
+	data: lvl3.png;
+}

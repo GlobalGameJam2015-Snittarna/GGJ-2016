@@ -46,11 +46,12 @@ public class Enemy extends Killable {
 		
 		if(currentPlayerSide == PlayerSide.RIGHT) {
 			flip = true;
-		} else {
+		}
+		if(currentPlayerSide == PlayerSide.LEFT) {
 			flip = false;
 		}
 		
-		getSprite().flip(flip, false);
+		getSprite().setFlip(flip, false);
 		
 		for(GameObject g : getScene().getObjects()) {
 			if(g instanceof Player) {

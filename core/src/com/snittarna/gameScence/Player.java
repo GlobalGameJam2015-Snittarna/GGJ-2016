@@ -51,7 +51,7 @@ public class Player extends Killable {
 		Map.player = this;
 		setSize(new Vector2(0.99f, 0.99f));
 		
-		setHealth(3);  
+		setHealth(8);  
 		
 		this.speed = 100f;
 		this.setType(Type.PLAYER);
@@ -92,8 +92,12 @@ public class Player extends Killable {
 		//this.setPosition(this.getPosition().cpy().add(new Vector2(velocity.x*deltaTime, velocity.y*deltaTime)));
 		hpLabel.setText("health: " + getHealth());
 		levelLabel.setText("level: " + Map.getCurrentLevelIndex());
-		powerupLabel.setText("powerup: none");
+		powerupLabel.setText("powerup: " + currentShootPattern);
 		scoreLabel.setText("score: " + score);
+		
+		if(this.getPosition().y <= -15) {
+			this.setHealth(0);
+		}
 	}
 	
 	public void updateInput(float deltaTime) {
