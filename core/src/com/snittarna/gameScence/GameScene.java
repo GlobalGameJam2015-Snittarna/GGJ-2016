@@ -14,11 +14,15 @@ public class GameScene extends Scene {
 	
 	public boolean nextLevel;
 	
+	private Animation background;
+	
 	public GameScene() {
 		super();
 		Map.player = null; // dont keep the player if the game is restarted
 		Map.load();
 		loadLevel(0);
+		background = new Animation(AssetManager.getTexture("background"));
+		background.setSize(16, 10);
 		//addObject(new Projectile(new Vector2(0, 0), (float)Math.PI/2, (float)Math.PI/2, 1, new Killable(new Vector2(0, 0), new Animation(AssetManager.getTexture("projectile"))), new Animation(AssetManager.getTexture("projectile"))));
 		//addObject(new Projectile(new Vector2(0, 0), (float)Math.PI/2, (float)Math.PI/2, 1, Killable.Type.PLAYER, new Animation(AssetManager.getTexture("projectile"))));
 		//addObject(new Player(new Vector2(1, 4)));
@@ -30,6 +34,8 @@ public class GameScene extends Scene {
 			nextLevel = false;
 			loadNextLevel();
 		}
+		
+		background.setPosition(this.getCamera().position.x - 8, this.getCamera().position.y - 5);
 	}
 	
 	public void loadNextLevel() {
@@ -49,6 +55,7 @@ public class GameScene extends Scene {
 	}
 	
 	public void draw(SpriteBatch batch) {
+		background.draw(batch);
 		Map.draw(batch);
 		super.draw(batch);
 	}

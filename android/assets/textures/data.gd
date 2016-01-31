@@ -18,4 +18,6 @@ textures: {
 	player: 10, 160, 77, 128;
 	
 	portal: 0, 413, 239, 227;
+	
+	background: 317, 72, 640, 320;
 }
