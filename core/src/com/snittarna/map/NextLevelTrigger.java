@@ -12,9 +12,11 @@ public class NextLevelTrigger extends GameObject {
 
 	public NextLevelTrigger(Vector2 position) {
 		super(position, new Vector2(2f, 2f), new Animation(new Sprite(AssetManager.getTexture("portal")), .5f, 4, 0, false));
+		this.getSprite().setAnimation(0.5f, 4, 0, false);
 	}
 	
 	public void update(float dt) {
+		getSprite().animate(dt);
 		for (GameObject g : getScene().getObjects()) {
 			if (g instanceof Player) {
 				if (g.getHitbox().collision(getHitbox())) {
