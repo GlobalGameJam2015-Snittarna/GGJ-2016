@@ -12,7 +12,7 @@ import com.snittarna.ui.MenuButton.Action;
 public class GameOverScene extends MenuScene {
 	Menu menu;
 	
-	public GameOverScene() {
+	public GameOverScene(int score) {
 		super(new Menu(new MenuButton[] {
 				new MenuButton(new Vector2(0, 100), new Action() {
 					public void call() {
@@ -25,6 +25,6 @@ public class GameOverScene extends MenuScene {
 						Gdx.app.exit();
 					}
 				}, "quit")
-		}), "Game Over!");
+		}), "Game Over!\nscore: " + score);
 	}
 }

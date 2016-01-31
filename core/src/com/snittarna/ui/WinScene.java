@@ -10,7 +10,7 @@ import com.snittarna.ui.MenuButton.Action;
 
 public class WinScene extends MenuScene {
 		
-	public WinScene() {
+	public WinScene(int score) {
 		super(new Menu(new MenuButton[] {
 				new MenuButton(new Vector2(0, 100), new Action() {
 					public void call() {
@@ -24,6 +24,6 @@ public class WinScene extends MenuScene {
 						Gdx.app.exit();
 					}
 				}, "quit")
-		}), "you win!");
+		}), "you win!\nscore: " + score);
 	}
 }

@@ -1,5 +1,6 @@
 package com.snittarna.ui;
 
+import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.snittarna.framework.Scene;
 import com.snittarna.pizza.AssetManager;
@@ -23,6 +24,7 @@ public class MenuScene extends Scene {
 	}
 	
 	private void drawTitle(SpriteBatch batch, String title) {
-		AssetManager.font.draw(batch, title, -50, 250);
+		GlyphLayout g = new GlyphLayout(AssetManager.font, title);
+		AssetManager.font.draw(batch, g, 0 - g.width / 2, 250);
 	}
 }

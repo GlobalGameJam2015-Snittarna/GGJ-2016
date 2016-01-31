@@ -35,7 +35,7 @@ public class GameScene extends Scene {
 	public void loadNextLevel() {
 		getObjects().clear();
 		if (Map.isLastLevel()) {
-			Game.setScene(new WinScene());
+			Game.setScene(new WinScene(Player.score));
 		} else {
 			Map.nextLevel();
 			Map.getCurrentLevel().loadObjects(this);

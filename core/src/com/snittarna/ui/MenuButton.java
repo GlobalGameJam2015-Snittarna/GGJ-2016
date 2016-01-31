@@ -1,5 +1,6 @@
 package com.snittarna.ui;
 
+import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.snittarna.pizza.AssetManager;
@@ -25,6 +26,7 @@ public class MenuButton {
 	}
 
 	public void draw(SpriteBatch batch, boolean  selected) {
-		AssetManager.font.draw(batch, (selected ? ">" : "") + text, position.x, position.y);
+		GlyphLayout g = new GlyphLayout(AssetManager.font, (selected ? ">" : "") + text);
+		AssetManager.font.draw(batch, g, position.x - g.width / 2, position.y);
 	}
 }

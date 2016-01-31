@@ -44,7 +44,7 @@ public class Player extends Killable {
 	
 	private Label[] labels;
 	private Label hpLabel, levelLabel, scoreLabel, powerupLabel;
-	private int score;
+	public static int score;
 	
 	//private Vector2 velocity;
 	
@@ -52,6 +52,8 @@ public class Player extends Killable {
 		super(position, new Animation(new Sprite(AssetManager.getTexture("player")), .2f, 4, (int)1e10, false));
 		Map.player = this;
 		setSize(new Vector2(0.99f, 0.99f*1.5f));
+		
+		score = 0;
 		
 		setHealth(8);  
 		
@@ -105,7 +107,7 @@ public class Player extends Killable {
 	public void setHealth(int health) {
 		super.setHealth(health);
 		if (health <= 0) {
-			Game.setScene(new GameOverScene());
+			Game.setScene(new GameOverScene(score));
 		}
 	}
 	
