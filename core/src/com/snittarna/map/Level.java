@@ -12,6 +12,7 @@ import com.snittarna.framework.Point;
 import com.snittarna.framework.Scene;
 import com.snittarna.gameScence.BarrierEnemy;
 import com.snittarna.gameScence.BasicEnemy;
+import com.snittarna.gameScence.Boss;
 import com.snittarna.gameScence.LaserEnemy;
 import com.snittarna.gameScence.Player;
 import com.snittarna.pizza.AssetManager;
@@ -65,6 +66,9 @@ public class Level {
 			break;
 		case 0x7FFF8Eff:
 			scene.addObject(new BarrierEnemy(position, 16, 2, 7, 8, 1, new Vector2(0.9f, 0.9f), new Animation(AssetManager.getTexture("projectile"))));
+			break;
+		case 0x6D7F3Fff:
+			scene.addObject(new Boss(position));
 			break;
 		case 0xffff00ff:
 			scene.addObject(new NextLevelTrigger(position));
