@@ -19,6 +19,7 @@ public class Map {
 	
 	private static Level[] levels;
 	private static int currentLevel;
+	public static Player player;
 	
 	
 	public static void load() {

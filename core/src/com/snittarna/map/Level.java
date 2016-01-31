@@ -44,7 +44,8 @@ public class Level {
 	private static void addObject(Vector2 position, int pixel, Scene scene) {
 		switch(pixel) {
 		case 0xff0000ff:
-			scene.addObject(new Player(position));
+			scene.addObject(Map.player == null ? new Player(position) : Map.player);
+			Map.player.setPosition(position);
 			break;
 		case 0x0070ECff:
 			// basic enemy

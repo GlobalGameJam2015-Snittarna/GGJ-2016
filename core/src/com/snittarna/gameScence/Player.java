@@ -44,7 +44,7 @@ public class Player extends Killable {
 	
 	public Player(Vector2 position) {
 		super(position, new Animation(AssetManager.getTexture("projectile")));
-		
+		Map.player = this;
 		setSize(new Vector2(0.99f, 0.99f));
 		
 		setHealth(3);  
