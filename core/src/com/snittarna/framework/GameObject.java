@@ -72,6 +72,7 @@ public abstract class GameObject {
 	protected void setOriginCenter() {
 		getSprite().setOriginCenter();
 		origin = new Vector2(sprite.getOriginX()/2, sprite.getOriginY()/2);
+		//origin = new Vector2(sprite.getRegionWidth() / 2, sprite.getRegionHeight() / 2);
 	}
 	
 	public float getDepth() {

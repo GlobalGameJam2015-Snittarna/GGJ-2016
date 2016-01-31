@@ -25,6 +25,7 @@ public class BasicEnemy extends Enemy {
 		this.setMaxAttackDelay(maxAttackDelay);
 		
 		setSize(size);
+		setOrigin(new Vector2(getOrigin().x, getOrigin().y + 7));
 	}
 	
 	public void update(float deltaTime) {
