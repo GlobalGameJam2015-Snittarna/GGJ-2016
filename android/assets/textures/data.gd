@@ -23,4 +23,6 @@ textures: {
 	
 	cultistIdle: 0, 658, 100, 123;
 	cultistAnimation: 100, 658, 100, 123;
+	
+	powerup: 13, 802, 43, 43;
 }
