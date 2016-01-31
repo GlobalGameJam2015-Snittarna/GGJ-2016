@@ -2,6 +2,7 @@ package com.snittarna.gameScence;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
@@ -43,7 +44,7 @@ public class Player extends Killable {
 	//private Vector2 velocity;
 	
 	public Player(Vector2 position) {
-		super(position, new Animation(AssetManager.getTexture("projectile")));
+		super(position, new Animation(new Sprite(AssetManager.getTexture("player")), .2f, 4, (int)1e10, false));
 		Map.player = this;
 		setSize(new Vector2(0.99f, 0.99f));
 		
@@ -68,6 +69,7 @@ public class Player extends Killable {
 	
 	public void update(float deltaTime) {
 		super.update(deltaTime);
+		getSprite().animate(deltaTime);
 		getScene().cameraPosition.sub(getScene().cameraPosition.cpy().sub(new Vector3(getPosition(), 0)).scl(.1f));
 		
 		getScene().getCamera().update();
@@ -100,12 +102,14 @@ public class Player extends Killable {
 			this.shootDirection = ShootDirection.LEFT;
 			
 			velocity.add(new Vector2(-speed * deltaTime, 0));
+			getSprite().setFlip(true, false);
 		}
 		
 		if(Gdx.input.isKeyPressed(Keys.RIGHT)) {
 			this.shootDirection = ShootDirection.RIGHT;
 			
 			velocity.add(new Vector2(speed * deltaTime, 0));
+			getSprite().setFlip(false, false);
 		}
 		
 		if(Gdx.input.isKeyPressed(Keys.UP)) {
