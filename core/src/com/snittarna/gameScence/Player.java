@@ -59,7 +59,7 @@ public class Player extends Killable {
 		
 		score = 0;
 		
-		setHealth(80);  
+		setHealth(8);  
 		
 		this.speed = 100f;
 		this.setType(Type.PLAYER);
