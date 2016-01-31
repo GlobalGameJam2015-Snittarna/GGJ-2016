@@ -21,6 +21,9 @@ public class Cultist extends Killable {
 	private boolean spawning;
 	private boolean aggro;
 	
+	private Animation idle;
+	private Animation active;
+	
 	public Cultist(Vector2 position, int health) {
 		super(position, new Animation(AssetManager.getTexture("cultistIdle")));
 		this.setHealth(health);
@@ -28,6 +31,10 @@ public class Cultist extends Killable {
 		this.setSize(new Vector2(1.5f, 2.5f));
 		this.maxSpawnCount = 8;
 		this.maxSpawnDelay = 5;
+		
+		idle = new Animation(AssetManager.getTexture("cultistIdle"));
+		active = new Animation(AssetManager.getTexture("cultist"));
+		active.setAnimation(0.5f, 4, 0, false);
 	}
 	
 	public void update(float deltaTime) {
@@ -58,9 +65,14 @@ public class Cultist extends Killable {
 					spawnDelay = 0;
 				}
 			}
+			
+			setSprite(active);
+			
+			getSprite().animate(deltaTime);
 		} else {
 			maxSpawnCount = 4;
 			this.setColor(new Color(1, 1, 1, 1));
+			setSprite(idle);
 		}
 	}
 	
