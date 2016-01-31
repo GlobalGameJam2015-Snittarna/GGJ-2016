@@ -2,6 +2,7 @@ package com.snittarna.framework;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.Vector2;
+import com.snittarna.gameScence.Corpse;
 import com.snittarna.gameScence.Projectile;
 
 public class Killable extends GameObject {
@@ -45,6 +46,7 @@ public class Killable extends GameObject {
 	
 	public void onDeath() {
 		getScene().removeObject(this);
+		getScene().addObject(new Corpse(this.getPosition(), this.getSize(), this.getSprite()));
 	}
 	
 	public void onHit(Projectile p) {

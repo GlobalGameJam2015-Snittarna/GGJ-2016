@@ -8,6 +8,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.snittarna.framework.Animation;
 import com.snittarna.framework.Killable;
+import com.snittarna.gameScence.PowerUp.Pattern;
 import com.snittarna.map.Map;
 import com.snittarna.pizza.AssetManager;
 import com.snittarna.ui.Label;
@@ -57,6 +58,7 @@ public class Player extends Killable {
 		this.shootDirection = ShootDirection.LEFT; 
 		this.projectilePrototype = new Projectile(new Vector2(0, 0), 0, 8, 1, Killable.Type.PLAYER, new Animation(AssetManager.getTexture("projectile")));
 		this.velocity = new Vector2(0, 0);
+		this.currentShootPattern = Pattern.NORMAL;
 		
 		this.setMaxInvicibleTimer(4);
 		
@@ -96,7 +98,13 @@ public class Player extends Killable {
 	
 	public void updateInput(float deltaTime) {
 		if(Gdx.input.isKeyJustPressed(Keys.X) && currentFireDelay <= 0) {
-			getScene().addObject(new Projectile(getPosition().cpy().add(new Vector2(getSize().x/4, getSize().y/4)), shootDirection.value, projectilePrototype.getSpeed()+(float)Math.abs(velocity.x), projectilePrototype.getDamage(), this.getType(), new Animation(AssetManager.getTexture("projectile"))));
+			if(this.currentShootPattern == Pattern.NORMAL) { 
+				getScene().addObject(new Projectile(getPosition().cpy().add(new Vector2(getSize().x/4, getSize().y/4)), shootDirection.value, projectilePrototype.getSpeed()+(float)Math.abs(velocity.x), projectilePrototype.getDamage(), this.getType(), new Animation(AssetManager.getTexture("projectile"))));
+			} else {
+				for(int i = -1; i < 2; i++) {
+					getScene().addObject(new Projectile(getPosition().cpy().add(new Vector2(getSize().x/4, getSize().y/4)), shootDirection.value-i*(float)Math.PI/16, projectilePrototype.getSpeed()+(float)Math.abs(velocity.x), projectilePrototype.getDamage(), this.getType(), new Animation(AssetManager.getTexture("projectile"))));
+				}
+			}
 			currentFireDelay += 10 * deltaTime;
 		}
 		

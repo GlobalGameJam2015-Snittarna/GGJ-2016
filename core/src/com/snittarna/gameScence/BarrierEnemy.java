@@ -19,6 +19,8 @@ public class BarrierEnemy extends LaserEnemy {
 			int damage, Vector2 size, Animation sprite) {
 		super(position, maxShootCount, health, attackRange, projectileSpeed, damage, size, sprite);
 		
+		this.setDamage(1);
+		
 		this.maxVunrableCount = 20;
 	}
 	
