@@ -1,4 +1,5 @@
 package com.snittarna.map;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.snittarna.framework.Animation;
@@ -10,7 +11,7 @@ import com.snittarna.pizza.AssetManager;
 public class NextLevelTrigger extends GameObject {
 
 	public NextLevelTrigger(Vector2 position) {
-		super(position, new Vector2(0.1f, .1f), new Animation(AssetManager.getTexture("error")));
+		super(position, new Vector2(2f, 2f), new Animation(new Sprite(AssetManager.getTexture("portal")), .5f, 4, 0, false));
 	}
 	
 	public void update(float dt) {
@@ -22,9 +23,5 @@ public class NextLevelTrigger extends GameObject {
 				}
 			}
 		}
-	}
-	
-	public void draw(SpriteBatch batch) {
-		// is invisible
 	}
 }

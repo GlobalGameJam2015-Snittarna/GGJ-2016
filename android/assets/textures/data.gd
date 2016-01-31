@@ -16,4 +16,6 @@ textures: {
 	basicEnemyAttack: 390, 0, 64, 54;
 	
 	player: 10, 160, 77, 128;
+	
+	portal: 0, 413, 239, 227;
 }
