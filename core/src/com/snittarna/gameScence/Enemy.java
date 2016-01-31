@@ -16,6 +16,8 @@ public class Enemy extends Killable {
 	private boolean attacking;
 	private boolean playerAbove;
 	
+	private boolean flip;
+	
 	private float shootCount;
 	private float maxShootCount;
 	private float attackAngle;
@@ -41,6 +43,14 @@ public class Enemy extends Killable {
 		super.update(deltaTime);
 		if(getSprite().getMaxFrame() > 0) getSprite().animate(deltaTime);
 		attack(deltaTime);
+		
+		if(currentPlayerSide == PlayerSide.RIGHT) {
+			flip = true;
+		} else {
+			flip = false;
+		}
+		
+		getSprite().flip(flip, false);
 		
 		for(GameObject g : getScene().getObjects()) {
 			if(g instanceof Player) {
