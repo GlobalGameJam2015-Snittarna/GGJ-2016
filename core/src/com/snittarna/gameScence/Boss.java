@@ -10,7 +10,7 @@ public class Boss extends BasicEnemy {
 	public Boss(Vector2 position) {
 		super(position, 8, 20, 10, 5, 20, new Vector2(5, 5), new Animation(AssetManager.getTexture("projectile")), new Animation(AssetManager.getTexture("projectile")));
 		
-		this.setMaxShootCount(3);
+		this.setMaxShootCount(16);
 	}
 	
 	public void update(float deltaTime) {
