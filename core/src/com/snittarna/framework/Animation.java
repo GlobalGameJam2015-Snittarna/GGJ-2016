@@ -68,17 +68,19 @@ public class Animation extends Sprite {
 			this.setRegion(this.getRegionX(), minFrame*this.getRegionHeight()+ currentFrame*this.getRegionWidth(), 
 					this.getRegionWidth(), this.getRegionHeight());
 		
-		if(animationDone()) 
+		if(currentFrame == maxFrame+1) 
 			currentFrame = 0;
 		
 		if(animationTime >= maxAnimationTime) {
 			currentFrame += 1;
+			if(currentFrame == maxFrame) 
+				currentFrame = 0;
 			animationTime = 0;
 		}
 	}
 	
 	public boolean animationDone() {
-		return currentFrame == maxFrame;
+		return currentFrame == maxFrame+1;
 	}
 	
 	public void setCurrentFrame(int currentFrame) {
