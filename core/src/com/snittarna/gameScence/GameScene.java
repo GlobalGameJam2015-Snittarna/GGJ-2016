@@ -27,7 +27,7 @@ public class GameScene extends Scene {
 		//addObject(new Projectile(new Vector2(0, 0), (float)Math.PI/2, (float)Math.PI/2, 1, new Killable(new Vector2(0, 0), new Animation(AssetManager.getTexture("projectile"))), new Animation(AssetManager.getTexture("projectile"))));
 		//addObject(new Projectile(new Vector2(0, 0), (float)Math.PI/2, (float)Math.PI/2, 1, Killable.Type.PLAYER, new Animation(AssetManager.getTexture("projectile"))));
 		//addObject(new Cultist(new Vector2(1, 4), 5));
-		addObject(new BasicEnemy(new Vector2(1, 4), 32, 5, 7, 3, 100, new Vector2(2, 2), new Animation(new Sprite(AssetManager.getTexture("tank")), 0.5f, 0, 0, false), new Animation(AssetManager.getTexture("tank"))));
+		//addObject(new BasicEnemy(new Vector2(1, 4), 32, 5, 7, 3, 100, new Vector2(2, 2), new Animation(new Sprite(AssetManager.getTexture("tank")), 0.5f, 0, 0, false), new Animation(AssetManager.getTexture("tank"))));
 	}
 	
 	public void update(float deltaTime) {
