@@ -24,7 +24,7 @@ public class Projectile extends GameObject {
 		
 		gravitates = false;
 		
-		this.setSize(new Vector2(0.5f, 0.5f));
+		this.setSize(new Vector2(0.3f, 0.3f));
 	}
 	
 	public void update(float deltaTime) {
