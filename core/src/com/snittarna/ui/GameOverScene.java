@@ -26,5 +26,6 @@ public class GameOverScene extends MenuScene {
 					}
 				}, "quit")
 		}), "Game Over!\nscore: " + score);
+		AssetManager.getSound("game-over").play();
 	}
 }

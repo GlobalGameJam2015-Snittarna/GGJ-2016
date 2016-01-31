@@ -2,6 +2,7 @@ package com.snittarna.map;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.math.Vector3;
 import com.snittarna.framework.Animation;
 import com.snittarna.framework.GameObject;
 import com.snittarna.gameScence.GameScene;
@@ -22,6 +23,8 @@ public class NextLevelTrigger extends GameObject {
 				if (g.getHitbox().collision(getHitbox())) {
 					((GameScene)getScene()).nextLevel = true;
 					System.out.println("new level");
+					AssetManager.getSound("next-level").play();
+					getScene().cameraPosition = new Vector3(-10, 0, 0);
 				}
 			}
 		}

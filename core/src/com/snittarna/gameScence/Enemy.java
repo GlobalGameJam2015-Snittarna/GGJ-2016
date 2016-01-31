@@ -4,6 +4,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.snittarna.framework.Animation;
 import com.snittarna.framework.GameObject;
 import com.snittarna.framework.Killable;
+import com.snittarna.pizza.AssetManager;
 
 public class Enemy extends Killable {
 	public enum PlayerSide { LEFT, RIGHT }; 
@@ -78,6 +79,7 @@ public class Enemy extends Killable {
 			if(shootCount >= maxShootCount) {
 				getScene().addObject(projectilePrototype);
 				shootCount = 0;
+				AssetManager.getSound("enemy-shoot").play();
 			}
 		}
 	}
@@ -104,12 +106,18 @@ public class Enemy extends Killable {
 		}
 	}
 	
+	public void onHit(Projectile p) {
+		super.onHit(p);
+		if (getHealth() > 0) AssetManager.getSound("enemy-hit").play();
+	}
+	
 	public void onDeath() {
 		for(GameObject g : getScene().getObjects()) {
 			if(g instanceof Player) {
 				((Player) g).raiseScore(worth);
 			}
 		}
+		AssetManager.getSound("enemy-death").play();
 		super.onDeath();
 	}
 	

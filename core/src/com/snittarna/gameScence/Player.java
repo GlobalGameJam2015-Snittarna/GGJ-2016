@@ -105,6 +105,7 @@ public class Player extends Killable {
 	}
 	
 	public void setHealth(int health) {
+		if (health < getHealth()) AssetManager.getSound("player-hurt").play();
 		super.setHealth(health);
 		if (health <= 0) {
 			Game.setScene(new GameOverScene(score));
@@ -121,6 +122,7 @@ public class Player extends Killable {
 				}
 			}
 			currentFireDelay += 10 * deltaTime;
+			AssetManager.getSound("player-shoot").play();
 		}
 		
 		if(Gdx.input.isKeyPressed(Keys.LEFT)) {
@@ -147,6 +149,7 @@ public class Player extends Killable {
 		
 		if(colY && Gdx.input.isKeyJustPressed(Keys.Z)) {
 			velocity.y = 16;
+			AssetManager.getSound("player-jump").play();
 		}
 	}
 	
