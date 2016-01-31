@@ -4,7 +4,7 @@ Task | Staus | Person
 -----|-------|-------
 Tile-system | done | Johannes
 Player | done | Tom
-Enemies | almost done | Johannes & Tom
+Enemies | done | Johannes & Tom
 Power-up system | done | Tom
 Projectiles | done | Tom
 Level system | done | Johannes
