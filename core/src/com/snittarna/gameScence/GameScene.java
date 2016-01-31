@@ -7,6 +7,8 @@ import com.snittarna.framework.Killable;
 import com.snittarna.framework.Scene;
 import com.snittarna.map.Map;
 import com.snittarna.pizza.AssetManager;
+import com.snittarna.pizza.Game;
+import com.snittarna.ui.WinScene;
 
 public class GameScene extends Scene {
 	
@@ -14,6 +16,7 @@ public class GameScene extends Scene {
 	
 	public GameScene() {
 		super();
+		Map.player = null; // dont keep the player if the game is restarted
 		Map.load();
 		loadLevel(0);
 		//addObject(new Projectile(new Vector2(0, 0), (float)Math.PI/2, (float)Math.PI/2, 1, new Killable(new Vector2(0, 0), new Animation(AssetManager.getTexture("projectile"))), new Animation(AssetManager.getTexture("projectile"))));
@@ -31,8 +34,12 @@ public class GameScene extends Scene {
 	
 	public void loadNextLevel() {
 		getObjects().clear();
-		Map.nextLevel();
-		Map.getCurrentLevel().loadObjects(this);
+		if (Map.isLastLevel()) {
+			Game.setScene(new WinScene());
+		} else {
+			Map.nextLevel();
+			Map.getCurrentLevel().loadObjects(this);
+		}
 	}
 	
 	public void loadLevel(int level) {

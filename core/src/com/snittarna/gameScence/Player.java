@@ -11,6 +11,8 @@ import com.snittarna.framework.Killable;
 import com.snittarna.gameScence.PowerUp.Pattern;
 import com.snittarna.map.Map;
 import com.snittarna.pizza.AssetManager;
+import com.snittarna.pizza.Game;
+import com.snittarna.ui.GameOverScene;
 import com.snittarna.ui.Label;
 
 public class Player extends Killable {
@@ -97,6 +99,13 @@ public class Player extends Killable {
 		
 		if(this.getPosition().y <= -15) {
 			this.setHealth(0);
+		}
+	}
+	
+	public void setHealth(int health) {
+		super.setHealth(health);
+		if (health <= 0) {
+			Game.setScene(new GameOverScene());
 		}
 	}
 	

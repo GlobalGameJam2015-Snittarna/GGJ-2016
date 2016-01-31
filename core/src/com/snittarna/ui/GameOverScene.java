@@ -9,23 +9,22 @@ import com.snittarna.pizza.AssetManager;
 import com.snittarna.pizza.Game;
 import com.snittarna.ui.MenuButton.Action;
 
-public class MainMenuScene extends MenuScene {
+public class GameOverScene extends MenuScene {
+	Menu menu;
 	
-	
-	public MainMenuScene() {
+	public GameOverScene() {
 		super(new Menu(new MenuButton[] {
 				new MenuButton(new Vector2(0, 100), new Action() {
 					public void call() {
-						System.out.println("lol");
 						Game.setScene(new GameScene());
 					}
-				}, "play"),
+				}, "play again"),
 				new MenuButton(new Vector2(0, 0), new Action() {
 					public void call() {
 						System.out.println("quit");
 						Gdx.app.exit();
 					}
 				}, "quit")
-		}), "zeal the deal :^))");
-	}	
+		}), "Game Over!");
+	}
 }

@@ -90,4 +90,9 @@ public class Map {
 	public static int getCurrentLevelIndex() {
 		return currentLevel;
 	}
+
+	public static boolean isLastLevel() {
+		// TODO Auto-generated method stub
+		return currentLevel == levels.length - 1;
+	}
 }
